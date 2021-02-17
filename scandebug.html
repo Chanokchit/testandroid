@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <script type="text/javascript">
-    let time_scan = 5000;
+    let time_scan = 10000;
     var uuid_device = '54F888C9-EFEF-68D2-B21D-A730AC675099' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'
     // var uuid_device = '46B314E5-E9DF-2D51-D524-06B718D02025' // A658ED45-BA23-BE46-5482-E1B5205D922A   54F888C9-EFEF-68D2-B21D-A730AC675099
     var uuid_device2 = 'A25692B2-5EF3-0C47-90F3-36391CA3CB53'
@@ -55,7 +55,7 @@
             alert ("unknown") 
             return "unknown";
             }
-    function scanDevice(time_scan) {
+    function scanDevice() {
         try {
             if (checkuserAgent() == 'ios') {
             webkit.messageHandlers.OneChat_scanDevice.postMessage(time_scan);
@@ -86,7 +86,7 @@
     //         alert('disconnectBluetoothAll ' + error)
     //     }
     // }
-    function disconnectBluetoothByUUID(uuid_device) {
+    function disconnectBluetoothByUUID() {
         try {
             if (checkuserAgent() == 'ios') {
             webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
