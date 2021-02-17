@@ -90,7 +90,8 @@
             if (checkuserAgent() == 'ios') {
             webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
             } else if (checkuserAgent() == 'android') {
-            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify(uuid_device));
+            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify({uuid:uuid_device}));
+            alert('disconnect')
         }
             // webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(String uuid)	
             // webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
