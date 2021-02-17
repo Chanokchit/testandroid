@@ -55,12 +55,13 @@
             alert ("unknown") 
             return "unknown";
             }
-    function scanDevice() {
+    function scanDevice(time_scan) {
         try {
             if (checkuserAgent() == 'ios') {
             webkit.messageHandlers.OneChat_scanDevice.postMessage(time_scan);
             } else if (checkuserAgent() == 'android') {
             JavaScriptInterface.OneChat_scanDevice(time_scan);
+            // JavaScriptInterface.OneChat_scanDevice(time_scan);
             alert('scan')
         }
             // webkit.messageHandlers.OneChat_scanDevice.postMessage(Int timeout_scan)	
@@ -85,10 +86,10 @@
     //         alert('disconnectBluetoothAll ' + error)
     //     }
     // }
-    function disconnectBluetoothByUUID() {
+    function disconnectBluetoothByUUID(uuid_device) {
         try {
             if (checkuserAgent() == 'ios') {
-            webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage({uuid:uuid_device});
+            webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
             } else if (checkuserAgent() == 'android') {
             JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify({uuid:uuid_device}));
             alert('disconnect')
