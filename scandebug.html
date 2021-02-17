@@ -15,25 +15,6 @@
     var datawrite = '0006CC59513C4CAA6116D34BF71000B12EF8'
     var datawrite2 = 'test write text 02/02/2021 ขอบคุณค่ะ'
 
-// webkit.messageHandlers.OneChat_connectServiceByUUID.postMessage({device_uuid:String,service_uuid:String})
-// webkit.messageHandlers.OneChat_connectServiceByManufacturerData.postMessage({manufacturer_data:String,service_uuid:String})
-// webkit.messageHandlers.OneChat_readCharacteristicByManufacturerData.postMessage({manufacturer_data:String,service_uuid:String,characteristic_uuid:String})
-// webkit.messageHandlers.OneChat_writeCharacteristicByManufacturerData.postMessage({manufacturer_data:String,service_uuid:String,characteristic_uuid:String,data:String})
-
-// webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-//     device_uuid: info.uuid,
-//     service_uuid: 'B101',
-//     characteristic_uuid: '2A04',
-//     data: '0006CC59513C4CAA6116D34BF71000B12EF8',
-//     data_type : 'hex'
-// });
-// webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-//     device_uuid: info.uuid,
-//     service_uuid: 'B101',
-//     characteristic_uuid: '2A04',
-//     data: 'text',
-//     datatype : 'text'
-// });
     function checkuserAgent () {
         
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -61,11 +42,8 @@
             webkit.messageHandlers.OneChat_scanDevice.postMessage(time_scan);
             } else if (checkuserAgent() == 'android') {
             JavaScriptInterface.OneChat_scanDevice(time_scan);
-            // JavaScriptInterface.OneChat_scanDevice(time_scan);
             alert('scan')
         }
-            // webkit.messageHandlers.OneChat_scanDevice.postMessage(Int timeout_scan)	
-            // webkit.messageHandlers.OneChat_scanDevice.postMessage(time_scan);
         } catch(error) {
             alert('scanDevice ' + error)
         }
@@ -78,14 +56,18 @@
     //         alert('stop scanDevice' + error)
     //     }
     // }
-    // function disconnectBluetoothAll() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage(String Any)
-    //         webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage("Success")
-    //     } catch(error) {
-    //         alert('disconnectBluetoothAll ' + error)
-    //     }
-    // }
+    function disconnectBluetoothAll() {
+        try {
+            // webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage("Success")
+            if (checkuserAgent() == 'ios') {
+          webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage('disconnect');
+        } else if (checkuserAgent() == 'android') {
+          JavaScriptInterface.OneChat_disconnectBluetoothAll('disconnect');
+        }
+        } catch(error) {
+            alert('disconnectBluetoothAll ' + error)
+        }
+    }
     function disconnectBluetoothByUUID() {
         try {
             if (checkuserAgent() == 'ios') {
@@ -324,15 +306,16 @@
             //         `;
             //     document.getElementById("stopdevice").innerHTML=message;
 
-            // } else if (type == 'disconnect_bluetooth_all') {
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //         message += `
-            //             status : ${obj.type}<br>
-            //             message : ${obj.message}<br>
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     document.getElementById("disconnectbluetooth").innerHTML=message;
+            } else if (type == 'disconnect_bluetooth_all') {
+                let obj = JSON.parse(data);
+                alert(obj + type)
+                var message = ''
+                    message += `
+                        status : ${obj.type}<br>
+                        message : ${obj.message}<br>
+                        -----------------------------------------------------<br>
+                    `;
+                document.getElementById("disconnectbluetooth").innerHTML=message;
 
             } else if (type == 'disconnect_bluetooth_by_uuid') {
                 let obj = JSON.parse(data);
@@ -449,10 +432,10 @@
         <a href="javascript:stopscanDevice();">[ stop scan device ]</a>
     </h1>
         <div id="stopdevice" width=300></div> -->
-    <!-- <h1>
+    <h1>
         <a href="javascript:disconnectBluetoothAll();">[ disconnect all bluetooth ]</a>
     </h1>
-        <div id="disconnectbluetooth" width=300></div> -->
+        <div id="disconnectbluetooth" width=300></div>
     <h1>
         <a href="javascript:disconnectBluetoothByUUID();">[ disconnect bluetooth by UUID ]</a>
     </h1>
