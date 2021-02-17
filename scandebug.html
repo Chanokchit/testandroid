@@ -58,12 +58,12 @@
     // }
     function disconnectBluetoothAll() {
         try {
-            // webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage("Success")
-            if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage('disconnect');
-        } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_disconnectBluetoothAll('disconnect');
-        }
+            webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage("Success")
+        //     if (checkuserAgent() == 'ios') {
+        //   webkit.messageHandlers.OneChat_disconnectBluetoothAll.postMessage('disconnect');
+        // } else if (checkuserAgent() == 'android') {
+        //   JavaScriptInterface.OneChat_disconnectBluetoothAll('disconnect');
+        // }
         } catch(error) {
             alert('disconnectBluetoothAll ' + error)
         }
