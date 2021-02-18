@@ -303,7 +303,7 @@
             if (type == 'return_once_device') {
                 let obj = JSON.parse(data);
                 var message = ''
-                // if (obj.data.bluetooth_name == 'LYS') {
+                if (obj.data.bluetooth_name == 'LYS') {
                     message += `
                         name : ${obj.data.bluetooth_name}<br>
                         uuid : ${obj.data.uuid}<br>
@@ -315,6 +315,7 @@
                     `; 
                     
                     document.getElementById("listdevice2").innerHTML= message ;
+                }
                 // } else if (obj.data.bluetooth_name == 'fern') {
                 //     message += `
                 //         name : ${obj.data.bluetooth_name}<br>
