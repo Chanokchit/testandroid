@@ -208,23 +208,23 @@
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
-            let obj = JSON.parse(data);
-            var message = ''
-            for (let i = 0; i < obj.data.length; i++) {
-                let a = obj.data[i];
+            // let obj = JSON.parse(data);
+            // var message = ''
+            // for (let i = 0; i < obj.data.length; i++) {
+            //     let a = obj.data[i];
 
-                message += `
-                    obj : ${a}
-                    name : ${a.bluetooth_name}<br>
-                    uuid : ${a.uuid}<br>
-                    manufacturer_data : ${a.manufacturer_data}<br>
-                    state : ${a.state}<br>
-                    rssi : ${a.rssi}<br>
-                    -----------------------------------------------------<br>
-                `;
-            }
-            document.getElementById("datalog").innerHTML=message;
-            document.getElementById("type").innerHTML= type;
+            //     message += `
+            //         obj(a) : ${a}
+            //         name : ${a.bluetooth_name}<br>
+            //         uuid : ${a.uuid}<br>
+            //         manufacturer_data : ${a.manufacturer_data}<br>
+            //         state : ${a.state}<br>
+            //         rssi : ${a.rssi}<br>
+            //         -----------------------------------------------------<br>
+            //     `;
+            // }
+            // document.getElementById("datalog").innerHTML=message;
+            // document.getElementById("type").innerHTML= type;
 
             if (type == 'get_device_service') {
                 let obj = JSON.parse(data);
@@ -253,6 +253,7 @@
                         name : ${a.bluetooth_name}<br>
                         uuid : ${a.uuid}<br>
                         manufacturer_data : ${a.manufacturer_data}<br>
+                        manufacturer_data : ${a.manufacturer_data_hexa}<br>
                         state : ${a.state}<br>
                         rssi : ${a.rssi}<br>
                         -----------------------------------------------------<br>
