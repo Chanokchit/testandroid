@@ -417,11 +417,11 @@
                 let obj = JSON.parse(data);
                 var message = ''
                     message += `
-                        data : ${obj.data}<br>
-                        device_name : ${obj.device_name}<br>
-			            device_uuid: ${obj.device_uuid}<br>
-                        service_uuid: ${obj.service_uuid}<br>
-                        characteristic_uuid: ${obj.characteristic_uuid}<br> 
+                        data : ${data.data}<br>
+                        device_name : ${data.device_name}<br>
+			            device_uuid: ${data.device_uuid}<br>
+                        service_uuid: ${data.service_uuid}<br>
+                        characteristic_uuid: ${data.characteristic_uuid}<br> 
                         -----------------------------------------------------<br>`;
 
                 document.getElementById("writeUUID").innerHTML=message;
