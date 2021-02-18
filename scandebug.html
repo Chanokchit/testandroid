@@ -231,12 +231,12 @@
       }
     }
     function OneChat_writeCharacteristicByUUID() {
-    scanDevice()
+    let uuid = scanDevice()
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid_device, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
+          webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
+          JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
         }
       } catch(error) {
         alert('writeCharacteristicByUUID ' + error)
@@ -315,6 +315,7 @@
                     
                     document.getElementById("listdevice2").innerHTML= message ;
                 }
+                return uuid_device;
                 // } 
                 // let obj = JSON.parse(data);
                 // var message = ''
