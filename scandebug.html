@@ -18,9 +18,12 @@
     var datawrite2 = 'test write text 2021'
 
     window.addEventListener('oneChatBluetoothCallBackData', async (e) => {
-      alert('Data')
-      alert(e.detail.type, e.detail.type.data)
-      this.test = e.detail.type
+    //   alert('Data')
+    //   alert(e.detail.type)
+      let logtype = e.detail.type
+      let logdata = e.detail.data
+      document.getElementById("type").innerHTML= logtype;
+      document.getElementById("data").innerHTML= logdata;
     })
     function checkuserAgent () {
         
@@ -344,6 +347,7 @@
 </script>
 <body>
     <div id="type" width=300></div>
+    <div id="data" width=300></div>
     <div id="datalog" width=300></div>
     <h1>
         <button type="button" onclick=checkuserAgent()>checkuserAgent</button>
