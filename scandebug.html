@@ -19,7 +19,7 @@
 
     window.addEventListener('oneChatBluetoothCallBackData', async (e) => {
       alert('Data')
-      alert(e.detail.type)
+      alert(e.detail.type, e.detail.type.data)
       this.test = e.detail.type
     })
     function checkuserAgent () {
