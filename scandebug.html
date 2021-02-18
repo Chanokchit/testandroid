@@ -237,7 +237,7 @@
             alert("uuid_device_ios"+uuid_device_ios)
           webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
         } else if (checkuserAgent() == 'android') {
-            alert("uuid_device_an"+uuid_device_an)
+            alert("uuid_device_an = "+uuid_device_an)
           JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
         }
       } catch(error) {
@@ -315,6 +315,18 @@
                     `; 
                     
                     document.getElementById("listdevice2").innerHTML= message ;
+                } else if (obj.data.bluetooth_name == 'fern') {
+                    message += `
+                        name : ${obj.data.bluetooth_name}<br>
+                        uuid : ${obj.data.uuid}<br>
+                        manufacturer_data : ${obj.data.manufacturer_data}<br>
+                        manufacturer_data_hexa : ${obj.data.manufacturer_data_hexa}<br>
+                        state : ${obj.data.state}<br>
+                        rssi : ${obj.data.rssi}<br>
+                        -----------------------------------------------------<br>
+                    `; 
+                    
+                    document.getElementById("listdevice3").innerHTML= message ;
                 }
                 // scanDevice(uuid_device)
                 // } 
@@ -461,6 +473,7 @@
     </h1> -->
         <div id="listdevice" width=300></div>
         <div id="listdevice2" width=300></div>
+        <div id="listdevice3" width=300></div>
         <div id="writeuuid" width=300></div>
 </body>
 </html>
