@@ -19,27 +19,6 @@
     var datawrite = '0006CC59513C4CAA6116D34BF71000B12EF8'
     var datawrite2 = 'test write text 2021'
 
-    // window.addEventListener('oneChatBluetoothCallBackData', async (e) => {
-    // //   alert('Data')
-    // //   alert(e.detail.type)
-    //   let logtype = e.detail.type
-    //   let logdata = e.detail.data
-    //   document.getElementById("type").innerHTML= logtype;
-    // //   document.getElementById("data").innerHTML= logdata;
-    //   if (logtype == 'return_once_device') {
-    //       let message = ''
-    //       message += `
-    //             logdata : ${logdata}<br>
-    //             type of logdata : ${typeof(logdata)}<br>
-    //             -----------------------------------------------------<br>
-    //         `;
-    //     document.getElementById("return").innerHTML= message;
-    //     // logdata.data.manufacturer_data_hexa
-    //   }
-    //   else if (logtype == 'write_characteristic_by_uuid'){
-    //       alert(data)
-    //   }
-    // })
     function checkuserAgent () {
         
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -104,7 +83,7 @@
             if (checkuserAgent() == 'ios') {
             webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
             } else if (checkuserAgent() == 'android') {
-            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify({uuid:uuid_device}));
+            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify(uuid_device));
             alert('disconnect')
         }
         } catch(error) {
@@ -163,9 +142,9 @@
     function OneChat_connectServiceByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_connectServiceByUUID.postMessage({device_uuid: device_uuid, service_uuid: service_uuid});
+          webkit.messageHandlers.OneChat_connectServiceByUUID.postMessage({device_uuid: device_uuid, service_uuid: uuid_service});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_connectServiceByUUID(JSON.stringify({device_uuid: device_uuid, service_uuid: service_uuid}));
+          JavaScriptInterface.OneChat_connectServiceByUUID(JSON.stringify({device_uuid: device_uuid, service_uuid: uuid_service}));
         }
       } catch(error) {
         alert('connectServiceByUUID ' + error)
@@ -187,9 +166,9 @@
     function OneChat_getCharacteristic() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_getCharacteristic.postMessage(service_uuid);
+          webkit.messageHandlers.OneChat_getCharacteristic.postMessage(uuid_service);
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_getCharacteristic(service_uuid);
+          JavaScriptInterface.OneChat_getCharacteristic(uuid_service);
         }
       } catch(error) {
         alert('getCharacteristic ' + error)
@@ -211,9 +190,9 @@
     function OneChat_readCharacteristicByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: device_uuid, service_uuid: service_uuid, characteristic_uuid: characteristic_uuid});
+          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: device_uuid, service_uuid: service_uuid, characteristic_uuid: characteristic_uuid}));
+          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read}));
         }
       } catch(error) {
         alert('readCharacteristicByUUID ' + error)
@@ -223,9 +202,9 @@
     function OneChat_writeCharacteristic() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({uuid: uuid_characteristic_write, data: data, data_type: data_type});
+          webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_writeCharacteristic(JSON.stringify({uuid: uuid_characteristic_write, data: data, data_type: data_type}));
+          JavaScriptInterface.OneChat_writeCharacteristic(JSON.stringify({uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
         }
       } catch(error) {
         alert('writeCharacteristic ' + error)
@@ -234,10 +213,10 @@
     function OneChat_writeCharacteristicByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-            alert("uuid_device_ios"+uuid_device_ios)
+            alert("uuid_device_ios" + uuid_device_ios)
           webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
         } else if (checkuserAgent() == 'android') {
-            alert("uuid_device_an = "+uuid_device_an)
+            alert("uuid_device_an = " + uuid_device_an)
           JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
         }
       } catch(error) {
