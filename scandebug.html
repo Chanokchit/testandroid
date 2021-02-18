@@ -24,6 +24,10 @@
       let logdata = e.detail.data
       document.getElementById("type").innerHTML= logtype;
       document.getElementById("data").innerHTML= logdata;
+      if (logtype == 'return_once_device') {
+        document.getElementById("return").innerHTML= logdata;
+        // logdata.data.manufacturer_data_hexa
+      }
     })
     function checkuserAgent () {
         
@@ -349,6 +353,7 @@
     <div id="type" width=300></div>
     <div id="data" width=300></div>
     <div id="datalog" width=300></div>
+    <div id="return" width=300></div>
     <h1>
         <button type="button" onclick=checkuserAgent()>checkuserAgent</button>
         <!-- <a href="javascript:checkuserAgent();">[ checkuserAgent ]</a> -->
