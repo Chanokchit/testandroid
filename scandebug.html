@@ -247,18 +247,20 @@
             if (type == 'return_once_device') {
                 try {
                     let obj = JSON.parse(data);
+                    alert("type obj ===>", typeof(obj))
                     var message = ''
                     for (let i = 0; i < obj.data.length; i++) {
                         let a = obj.data[i];
-                    message += `
-                        obj : ${a}
-                        name : ${a.bluetooth_name}<br>
-                        uuid : ${a.uuid}<br>
-                        manufacturer_data : ${a.manufacturer_data}<br>
-                        state : ${a.state}<br>
-                        rssi : ${a.rssi}<br>
-                        -----------------------------------------------------<br>
-                    `;
+                        message += `
+                            obj : ${obj}
+                            a : ${a}
+                            name : ${obj.bluetooth_name}<br>
+                            uuid : ${obj.uuid}<br>
+                            manufacturer_data : ${obj.manufacturer_data}<br>
+                            state : ${obj.state}<br>
+                            rssi : ${obj.rssi}<br>
+                            -----------------------------------------------------<br>
+                        `;
                     }
                     document.getElementById("listdevice2").innerHTML=message;
                 } catch (error) {
