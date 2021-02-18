@@ -277,27 +277,16 @@
                 try {
                     let obj = JSON.parse(data);
                     var message = ''
-                    message += `
+                    if (obj.data.bluetooth_name == 'LYS') {
+                       message += `
                             name : ${obj.data.bluetooth_name}<br>
                             uuid : ${obj.data.uuid}<br>
                             manufacturer_data : ${obj.data.manufacturer_data}<br>
                             state : ${obj.data.state}<br>
                             rssi : ${obj.data.rssi}<br>
                             -----------------------------------------------------<br>
-                        `;
-                    
-                    // for (let i = 0; i < obj.data.length; i++) {
-                    //     alert("for loop")
-                    //     let a = obj.data[i];
-                    //     message += `
-                    //         name : ${a.bluetooth_name}<br>
-                    //         uuid : ${a.uuid}<br>
-                    //         manufacturer_data : ${a.manufacturer_data}<br>
-                    //         state : ${a.state}<br>
-                    //         rssi : ${a.rssi}<br>
-                    //         -----------------------------------------------------<br>
-                    //     `;
-                    // }
+                        `; 
+                    }
                     document.getElementById("listdevice2").innerHTML= message ;
                 } catch (error) {
                     alert("error in return_once_device ====>", error)
