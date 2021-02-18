@@ -102,7 +102,8 @@
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
-            logtoHTML('>>>> <br>' + type + data)
+            document.getElementById("type").innerHTML= type, data;
+            // logtoHTML('>>>> <br>' + type + data)
             if (type == 'get_device_service') {
                 let obj = JSON.parse(data);
                 var message = ''
@@ -172,6 +173,7 @@
 
 </script>
 <body>
+    <div id="type" width=300></div>
     <h1>
         <a href="javascript:checkuserAgent();">[ checkuserAgent ]</a>
     </h1>
