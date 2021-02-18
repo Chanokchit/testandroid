@@ -190,9 +190,9 @@
     function OneChat_readCharacteristicByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read});
+          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read}));
+          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read}));
         }
       } catch(error) {
         alert('readCharacteristicByUUID ' + error)
