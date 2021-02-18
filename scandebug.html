@@ -248,19 +248,19 @@
                 try {
                     let obj = JSON.parse(data);
                     var message = ''
-                    for (let i = 0; i < obj.data.length; i++) {
-                        let a = obj.data[i];
-                        message += `
-                            obj : ${obj}
-                            a : ${a}
-                            name : ${obj.bluetooth_name}<br>
-                            uuid : ${obj.uuid}<br>
-                            manufacturer_data : ${obj.manufacturer_data}<br>
-                            state : ${obj.state}<br>
-                            rssi : ${obj.rssi}<br>
-                            -----------------------------------------------------<br>
-                        `;
-                    }
+                    // for (let i = 0; i < obj.data.length; i++) {
+                    //     let a = obj.data[i];
+                    message += `
+                        obj1 : ${data}
+                        obj2 : ${obj}
+                        name : ${obj.bluetooth_name}<br>
+                        uuid : ${obj.uuid}<br>
+                        manufacturer_data : ${obj.manufacturer_data}<br>
+                        state : ${obj.state}<br>
+                        rssi : ${obj.rssi}<br>
+                        -----------------------------------------------------<br>
+                    `;
+                    // }
                     document.getElementById("listdevice2").innerHTML=message;
                 } catch (error) {
                     alert("error in return_once_device ====>", error)
