@@ -276,17 +276,20 @@
             if (type == 'return_once_device') {
                 // try {
                     let obj = JSON.parse(data);
-                    var message = obj.data.uuid
-                    // for (let i = 0; i < obj.data.length; i++) {
-
-                    //     let a = obj.data[i];
-
-                    //     message += `
-                    //         obj : ${obj.data.uuid}<br>
-                    //         -----------------------------------------------------<br>
-                    //     `;
-                    // }
-                    document.getElementById("listdevice2").innerHTML=typeof(obj.data);
+                    var message = ''
+                    for (let i = 0; i < obj.data.length; i++) {
+                        let a = obj.data[i];
+                        message += `
+                            name : ${obj.data.bluetooth_name}<br>
+                            uuid : ${obj.data.uuid}<br>
+                            manufacturer_data : ${obj.data.manufacturer_data}<br>
+                            state : ${obj.data.state}<br>
+                            rssi : ${obj.data.rssi}<br>
+                            obj : ${obj.data.uuid}<br>
+                            -----------------------------------------------------<br>
+                        `;
+                    }
+                    document.getElementById("listdevice2").innerHTML= message;
                 // } catch (error) {
                 //     alert("error in return_once_device ====>", error)
                 // }
