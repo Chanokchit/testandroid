@@ -25,15 +25,13 @@
       document.getElementById("type").innerHTML= logtype;
     //   document.getElementById("data").innerHTML= logdata;
       if (logtype == 'return_once_device') {
-          let data = logdata.json()
-        //   let message = ''
-        //   message += `
-        //         data : ${logdata.data}<br>
-        //         uuid : ${logdata.data.uuid}<br>
-        //         uuid : ${logdata.data.data.uuid}<br>
-        //         -----------------------------------------------------<br>
-        //     `;
-        document.getElementById("return").innerHTML= typeof(data) ;
+          let message = ''
+          message += `
+                logdata : ${logdata}<br>
+                type of logdata : ${typeof(logdata)}<br>
+                -----------------------------------------------------<br>
+            `;
+        document.getElementById("return").innerHTML= message;
         // logdata.data.manufacturer_data_hexa
       }
     })
