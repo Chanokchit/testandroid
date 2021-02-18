@@ -13,7 +13,7 @@
     var data_type = 'hex'
     var data_type2 = 'text'
     var datawrite = '0006CC59513C4CAA6116D34BF71000B12EF8'
-    var datawrite2 = 'test write text 02/02/2021 ขอบคุณค่ะ'
+    var datawrite2 = 'test write text 2021'
 
     function checkuserAgent () {
         
@@ -83,203 +83,20 @@
         }
     }
     
-    // function getPrimaryService() {
-    //     try {
-    //         if (checkuserAgent() == 'ios') {
-    //         webkit.messageHandlers.OneChat_getPrimaryService.postMessage(uuid_device);
-    //         } else if (checkuserAgent() == 'android') {
-    //         JavaScriptInterface.OneChat_getPrimaryService(uuid_device);
-    //         }
-    //         // webkit.messageHandlers.OneChat_getPrimaryService.postMessage(String uuid)	
-    //         // webkit.messageHandlers.OneChat_getPrimaryService.postMessage(uuid_device);
-    //     } catch(error) {
-    //         alert('getPrimaryService ' + error)
-    //     }
-    // }
-    // function getPrimaryService2() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_getPrimaryService.postMessage(String uuid)	
-    //         webkit.messageHandlers.OneChat_getPrimaryService.postMessage(uuid_device2);
-    //     } catch(error) {
-    //         alert('getPrimaryService2 ' + error)
-    //     }
-    // }
-    // function getCharacteristic() {
-    //     try {
-    //         if (checkuserAgent() == 'ios') {
-    //         webkit.messageHandlers.OneChat_getCharacteristic.postMessage(uuid_service);
-    //         } else if (checkuserAgent() == 'android') {
-    //         JavaScriptInterface.OneChat_getCharacteristic(service_uuid);
-    //         }
-    //         // webkit.messageHandlers.OneChat_getCharacteristic.postMessage(String uuid)
-    //         // webkit.messageHandlers.OneChat_getCharacteristic.postMessage(uuid_service);
-    //     } catch(error) {
-    //         alert('getCharacteristic (error)' + error)
-    //     }
-    // }
-    // function writeCharacteristic() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({uuid:String, data:String})
-    //         webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({
-    //             characteristic_uuid: uuid_characteristic_write, 
-    //             data: datawrite, 
-    //             data_type: data_type
-    //         });
-    //     } catch(error) {
-    //         alert('writeCharacteristic ' + error)
-    //     }
-    // }
-    // function writeCharacteristic2() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({uuid:String, data:String})
-    //         webkit.messageHandlers.OneChat_writeCharacteristic.postMessage({
-    //             characteristic_uuid: uuid_characteristic_write, 
-    //             data: datawrite2, 
-    //             data_type: data_type2
-    //         });
-    //     } catch(error) {
-    //         alert('writeCharacteristic 2' + error)
-    //     }
-    // }
-    // function writeCharacteristicByUUID() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid:String, service_uuid:String, characteristic_uuid:String, data:String})
-    //         if (checkuserAgent() == 'ios') {
-    //       webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-    //           device_uuid: uuid_device, 
-    //           service_uuid: uuid_service, 
-    //           characteristic_uuid: uuid_characteristic_write, 
-    //           data: datawrite, 
-    //           data_type: data_type});
-    //     } else if (checkuserAgent() == 'android') {
-    //       JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({
-    //         device_uuid: uuid_device, 
-    //           service_uuid: uuid_service, 
-    //           characteristic_uuid: uuid_characteristic_write, 
-    //           data: datawrite, 
-    //           data_type: data_type}));
-    //     }
-            // webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-            //     device_uuid: uuid_device,
-            //     service_uuid: uuid_service,
-            //     characteristic_uuid: uuid_characteristic_write,
-            //     data: datawrite,
-            //     data_type : data_type
-            // });
-    //     } catch(error) {
-    //         alert('writeCharacteristicByUUID ' + error)
-    //     }
-    // }
-    // function writeCharacteristicByUUID_2() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid:String, service_uuid:String, characteristic_uuid:String, data:String})
-    //         webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-    //             device_uuid: uuid_device2,
-    //             service_uuid: uuid_service,
-    //             characteristic_uuid: uuid_characteristic_write,
-    //             data: datawrite,
-    //             data_type : data_type
-    //         });
-    //     } catch(error) {
-    //         alert('writeCharacteristicByUUID ' + error)
-    //     }
-    // }
-    // function writeCharacteristicByUUID2() {
-    //     try {
-    //         // webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid:String, service_uuid:String, characteristic_uuid:String, data:String})
-    //         if (checkuserAgent() == 'ios') {
-    //       webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-    //           device_uuid: uuid_device, 
-    //           service_uuid: uuid_service, 
-    //           characteristic_uuid: uuid_characteristic_write, 
-    //           data: datawrite, 
-    //           data_type: data_type});
-    //     } else if (checkuserAgent() == 'android') {
-    //       JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({
-    //         device_uuid: uuid_device, 
-    //           service_uuid: uuid_service, 
-    //           characteristic_uuid: uuid_characteristic_write, 
-    //           data: datawrite2, 
-    //           data_type: data_type}));
-    //     }
-            // webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({
-            //     device_uuid: uuid_device,
-            //     service_uuid: uuid_service,
-            //     characteristic_uuid: uuid_characteristic_write,
-            //     data: datawrite2,
-            //     data_type : data_type2
-            // });
-    //     } catch(error) {
-    //         alert('writeCharacteristicByUUID 2' + error)
-    //     }
-    // }
-    // function readCharacteristic() {
-    //     // alert ('test')
-    //     try {
-    //         // webkit.messageHandlers.OneChat_readCharacteristic.postMessage(String String)
-    //         webkit.messageHandlers.OneChat_readCharacteristic.postMessage(uuid_characteristic_read);
-    //     } catch(error) {
-    //         alert('readCharacteristic ' + error)
-    //     }
-    // }
-    // function OneChat_readCharacteristicByUUID (device_uuid, service_uuid, characteristic_uuid) {
-    //   try {
-    //     if (checkuserAgent() == 'ios') {
-    //       webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read});
-    //     }
-    //   } catch(error) {
-    //     alert('readCharacteristicByUUID ' + error)
-    //   }
-    // }
-    // function OneChat_readCharacteristicByUUID() {
-    //     // alert ('test')
-    //     try {
-    //         // webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid:String,service_uuid:String,characteristic_uuid:String})
-    //         webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({
-    //             device_uuid: uuid_device, 
-    //             service_uuid: uuid_service, 
-    //             characteristic_uuid: uuid_characteristic_read
-    //         });
-    //     } catch(error) {
-    //         alert('readCharacteristicByUUID ' + error)
-    //     }
-    // }
-
     function oneChatBluetoothCallBackData(type, data) {
         try {
-            // alert (type)
             if (type == 'get_device_service') {
-                // alert (data)
                 let obj = JSON.parse(data);
                 var message = ''
-                // alert(type)
                 for (let i = 0; i < obj.data.length; i++) {
-                    let d = obj.data[i];
-                    // let mfdata = 'N/A';
-                    // let m = {}, mx;
-                    // if (d.manufacturer_data) {
-                    //     try {
-                    //         mx = d.manufacturer_data.replace(/[{} ]/g,'');
-                    //         let arr= mx.split(',');
-                    //         for (let c of arr) {
-                    //             let b = c.split('=');
-                    //             m[b[0]] = b[1];
-                    //         }
-                    //         if (m) {
-                    //             mfdata = m.bytes;
-                    //         } 
-                    //     }
-                    //     catch(e) {
-                    //         m = 'error'
-                    //     }
-                    // }
+                    let a = obj.data[i];
 
                     message += `
-                        name : ${d.bluetooth_name}<br>
-                        uuid : ${d.uuid}<br>
-                        manufacturer_data : ${d.manufacturer_data}<br>
-                        state : ${d.state}<br>
-                        rssi : ${d.rssi}<br>
+                        name : ${a.bluetooth_name}<br>
+                        uuid : ${a.uuid}<br>
+                        manufacturer_data : ${a.manufacturer_data}<br>
+                        state : ${a.state}<br>
+                        rssi : ${a.rssi}<br>
                         -----------------------------------------------------<br>
                     `;
                 }
@@ -328,87 +145,7 @@
                         -----------------------------------------------------<br>
                     `;
                 document.getElementById("disconnectbluetoothUUID").innerHTML=message;
-
-            // } else if (type == 'get_service') {
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //     for (let i = 0; i < obj.data.length; i++) {
-            //         let obj2 = obj.data[i];
-            //         message += `
-            //             service : ${obj2}<br>
-            //             device : ${obj.device_name}<br>
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     }
-            //     document.getElementById("listservice").innerHTML=message;
-
-            // } else if (type == 'get_characteristic') {
-            //     let obj = JSON.parse(data);
-            //     alert ('obj>>>>' + obj)
-            //     var message = ''
-            //     for (let i = 0; i < obj.data.length; i++) {
-            //         let obj2 = obj.data[i]
-
-            //         message += `
-            //             uuid : ${obj2.uuid}<br>
-            //             type : ${obj2.type}<br>
-            //             descriptors : ${obj2.descriptors}<br>
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     }
-            //     document.getElementById("listcharacteristic").innerHTML=message;
-
-            // } else if (type == 'write_characteristic') {
-            //     // alert (data)
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //         message += `
-            //             data : ${obj.data}<br>
-            //             characteristic_uuid: ${obj.characteristic_uuid}<br> 
-            //             -----------------------------------------------------<br>`;
-
-            //     document.getElementById("write").innerHTML=message;
-        
-            // } else if (type == 'write_characteristic_by_uuid') {
-            //     alert (data)
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //         message += `
-            //             data : ${obj.data}<br>
-            //             device_name : ${obj.device_name}<br>
-			//             device_uuid: ${obj.device_uuid}<br>
-            //             service_uuid: ${obj.service_uuid}<br>
-            //             characteristic_uuid: ${obj.characteristic_uuid}<br> 
-            //             -----------------------------------------------------<br>`;
-
-            //     document.getElementById("writeUUID").innerHTML=message;
-            
-            // } else if (type == 'read_characteristic') {
-            //     alert (data)
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //         message += `
-            //             data : ${obj.data}<br>
-            //             characteristic_uuid: ${obj.characteristic_uuid}<br> 
-            //             -----------------------------------------------------<br>`;
-
-            //     document.getElementById("read").innerHTML=message;
-            
-            // } else if (type == 'read_characteristic_by_uuid_V2') {
-            //     alert (data)
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //         message += `
-            //             data : ${obj.data}<br>
-            //             device_name : ${obj.device_name}<br>
-			//             device_uuid: ${obj.device_uuid}<br>
-            //             service_uuid: ${obj.service_uuid}<br>
-            //             characteristic_uuid: ${obj.characteristic_uuid}<br> 
-            //             -----------------------------------------------------<br>`;
-
-            //     document.getElementById("readUUID").innerHTML=message;
-
-}
+            }
         }
         catch(error) {
             alert('error >>>>>>>> ' + error);
@@ -421,9 +158,6 @@
         <a href="javascript:checkuserAgent();">[ checkuserAgent ]</a>
     </h1>
         <div id="checkuser" width=300></div>
-    
-    <!-- <span id="test">test</span>
-    <br> -->
     <!-- <h1>
         <a href="javascript:scanDevice();">[ start scan device ]</a>
     </h1>
@@ -444,44 +178,5 @@
         <a href="javascript:scanDevice();">[ scan device ]</a>
     </h1>
         <div id="listdevice" width=300></div>
-    <!-- <h1>
-        <a href="javascript:getPrimaryService();">[ get service ]</a>
-    </h1>
-        <div id="listservice" width=300></div> -->
-    <!-- <h1>
-        <a href="javascript:getPrimaryService2();">[ get service2 ]</a>
-    </h1>
-        <div id="listservice" width=300></div> -->
-    <!-- <h1>
-        <a href="javascript:getCharacteristic();">[ get Characteristic ]</a>
-    </h1>
-        <div id="listcharacteristic" width=300></div>
-    <h1>
-        <a href="javascript:writeCharacteristic();">[ write "HEX" ]</a>
-    </h1>
-        <div id="write" width=300></div>
-    <h1>
-        <a href="javascript:writeCharacteristic2();">[ write "TEXT" ]</a>
-    </h1>
-        <div id="write" width=300></div>
-    <h1>
-        <a href="javascript:writeCharacteristicByUUID();">[ write "HEX" by UUID ]</a>
-    </h1> -->
-    <!-- <h1>
-        <a href="javascript:writeCharacteristicByUUID_2();">[ write "HEX" by UUID2 ]</a>
-    </h1> -->
-    <!-- <h1>
-        <a href="javascript:writeCharacteristicByUUID2();">[ write "TEXT" by UUID ]</a>
-    </h1>
-        <div id="writeUUID" width=300></div>
-    <h1>
-        <a href="javascript:readCharacteristic();">[ read ]</a>
-    </h1>
-        <div id="read" width=300></div>
-    <h1>
-        <a href="javascript:OneChat_readCharacteristicByUUID();">[ read by UUID ]</a>
-    </h1>
-        <div id="readUUID" width=300></div> -->
-    
 </body>
 </html>
