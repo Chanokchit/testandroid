@@ -242,17 +242,17 @@
         alert('writeCharacteristicByUUID ' + error)
       }
     }
-    function OneChat_writeCharacteristicByUUID2() {
-      try {
-        if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
-        } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
-        }
-      } catch(error) {
-        alert('writeCharacteristicByUUID ' + error)
-      }
-    }
+    // function OneChat_writeCharacteristicByUUID2() {
+    //   try {
+    //     if (checkuserAgent() == 'ios') {
+    //       webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
+    //     } else if (checkuserAgent() == 'android') {
+    //       JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
+    //     }
+    //   } catch(error) {
+    //     alert('writeCharacteristicByUUID ' + error)
+    //   }
+    // }
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
@@ -302,7 +302,6 @@
                 let obj = JSON.parse(data);
                 var message = ''
                 if (obj.data.bluetooth_name == 'LYS') {
-                    // uuid_device = obj.data.uuid
                     message += `
                         name : ${obj.data.bluetooth_name}<br>
                         uuid : ${obj.data.uuid}<br>
@@ -436,7 +435,7 @@
         <button type="button" onclick=OneChat_readCharacteristicByUUID()>readCharacteristicByUUID</button>
         <button type="button" onclick=OneChat_writeCharacteristic()>writeCharacteristic</button>
         <button type="button" onclick=OneChat_writeCharacteristicByUUID()>writeCharacteristicByUUID</button>
-        <button type="button" onclick=OneChat_writeCharacteristicByUUID2()>writeCharacteristicByUUID2</button>
+        <!-- <button type="button" onclick=OneChat_writeCharacteristicByUUID2()>writeCharacteristicByUUID2</button> -->
     </h1>
         <div id="checkuser" width=300></div>
     <!-- <h1>
