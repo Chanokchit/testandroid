@@ -224,7 +224,7 @@
             //     `;
             // }
             // document.getElementById("datalog").innerHTML=message;
-            // document.getElementById("type").innerHTML= type;
+            document.getElementById("type").innerHTML= type;
 
             // if (type == 'get_device_service') {
             //     let obj = JSON.parse(data);
@@ -260,7 +260,7 @@
                     `;
                 }
                 document.getElementById("listdevice2").innerHTML=message;
-                
+
             } else if (type == 'start_scan_bluetooth') {
                 let obj = JSON.parse(data);
                 var message = ''
@@ -336,12 +336,12 @@
         <div id="checkuser" width=300></div>
     <!-- <h1>
         <a href="javascript:scanDevice();">[ start scan device ]</a>
-    </h1>
-        <div id="startdevice" width=300></div> -->
+    </h1> -->
+        <div id="startdevice" width=300></div>
     <!-- <h1>
         <a href="javascript:stopscanDevice();">[ stop scan device ]</a>
-    </h1>
-        <div id="stopdevice" width=300></div> -->
+    </h1> -->
+        <div id="stopdevice" width=300></div>
     <!-- <h1>
         <a href="javascript:disconnectBluetoothAll();">[ disconnect all bluetooth ]</a>
     </h1> -->
