@@ -25,14 +25,14 @@
       document.getElementById("type").innerHTML= logtype;
     //   document.getElementById("data").innerHTML= logdata;
       if (logtype == 'return_once_device') {
-          let message = ''
-          message += `
-                data : ${logdata.data}<br>
-                uuid : ${logdata.data.uuid}<br>
-                uuid : ${logdata.data.data.uuid}<br>
-                -----------------------------------------------------<br>
-            `;
-        document.getElementById("return").innerHTML= message;
+        //   let message = ''
+        //   message += `
+        //         data : ${logdata.data}<br>
+        //         uuid : ${logdata.data.uuid}<br>
+        //         uuid : ${logdata.data.data.uuid}<br>
+        //         -----------------------------------------------------<br>
+        //     `;
+        document.getElementById("return").innerHTML= typeof(logdata);
         // logdata.data.manufacturer_data_hexa
       }
     })
