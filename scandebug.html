@@ -231,7 +231,7 @@
       }
     }
     function OneChat_writeCharacteristicByUUID() {
-    let uuid = scanDevice()
+    // let uuid = scanDevice()
       try {
         if (checkuserAgent() == 'ios') {
           webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: uuid, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
@@ -301,8 +301,8 @@
             if (type == 'return_once_device') {
                 let obj = JSON.parse(data);
                 var message = ''
-                if (obj.data.manufacturer_data_hexa == manufacturer_data) {
-                    uuid_device = obj.data.uuid
+                if (obj.data.name == 'LYS') {
+                    // uuid_device = obj.data.uuid
                     message += `
                         name : ${obj.data.bluetooth_name}<br>
                         uuid : ${obj.data.uuid}<br>
@@ -315,7 +315,7 @@
                     
                     document.getElementById("listdevice2").innerHTML= message ;
                 }
-                return uuid_device;
+                // scanDevice(uuid_device)
                 // } 
                 // let obj = JSON.parse(data);
                 // var message = ''
