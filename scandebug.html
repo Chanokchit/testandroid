@@ -241,6 +241,17 @@
         alert('writeCharacteristicByUUID ' + error)
       }
     }
+    function OneChat_writeCharacteristicByUUID2() {
+      try {
+        if (checkuserAgent() == 'ios') {
+          webkit.messageHandlers.OneChat_writeCharacteristicByUUID.postMessage({device_uuid: manufacturer_data, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type});
+        } else if (checkuserAgent() == 'android') {
+          JavaScriptInterface.OneChat_writeCharacteristicByUUID(JSON.stringify({device_uuid: manufacturer_data, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_write, data: datawrite, data_type: data_type}));
+        }
+      } catch(error) {
+        alert('writeCharacteristicByUUID ' + error)
+      }
+    }
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
@@ -424,6 +435,7 @@
         <button type="button" onclick=OneChat_readCharacteristicByUUID()>readCharacteristicByUUID</button>
         <button type="button" onclick=OneChat_writeCharacteristic()>writeCharacteristic</button>
         <button type="button" onclick=OneChat_writeCharacteristicByUUID()>writeCharacteristicByUUID</button>
+        <button type="button" onclick=OneChat_writeCharacteristicByUUID2()>writeCharacteristicByUUID2</button>
     </h1>
         <div id="checkuser" width=300></div>
     <!-- <h1>
