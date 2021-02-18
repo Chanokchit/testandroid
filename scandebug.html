@@ -301,7 +301,7 @@
             if (type == 'return_once_device') {
                 let obj = JSON.parse(data);
                 var message = ''
-                if (obj.data.name == 'LYS') {
+                if (obj.data.bluetooth_name == 'LYS') {
                     // uuid_device = obj.data.uuid
                     message += `
                         name : ${obj.data.bluetooth_name}<br>
