@@ -223,7 +223,7 @@
                     -----------------------------------------------------<br>
                 `;
             }
-            document.getElementById("listdevice").innerHTML=message;
+            document.getElementById("datalog").innerHTML=message;
             document.getElementById("type").innerHTML= type;
 
             if (type == 'get_device_service') {
@@ -296,6 +296,7 @@
 </script>
 <body>
     <div id="type" width=300></div>
+    <div id="datalog" width=300></div>
     <h1>
         <button type="button" onclick=checkuserAgent()>checkuserAgent</button>
         <!-- <a href="javascript:checkuserAgent();">[ checkuserAgent ]</a> -->
