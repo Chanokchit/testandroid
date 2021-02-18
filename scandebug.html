@@ -280,12 +280,12 @@
                     for (let i = 0; i < obj.data.length; i++) {
                         let a = obj.data[i];
                         message += `
-                            name : ${obj.data.bluetooth_name}<br>
-                            uuid : ${obj.data.uuid}<br>
-                            manufacturer_data : ${obj.data.manufacturer_data}<br>
-                            state : ${obj.data.state}<br>
-                            rssi : ${obj.data.rssi}<br>
-                            obj : ${obj.data.uuid}<br>
+                            name : ${a.bluetooth_name}<br>
+                            uuid : ${a.uuid}<br>
+                            manufacturer_data : ${a.manufacturer_data}<br>
+                            state : ${a.state}<br>
+                            rssi : ${a.rssi}<br>
+                            obj : ${a.uuid}<br>
                             -----------------------------------------------------<br>
                         `;
                     }
