@@ -208,10 +208,9 @@
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
-            let obj = JSON.parse(data)
             let logtohtml = ''
-            for (let i = 0; i < obj.data.length; i++) {
-                    let a = obj.data[i];
+            for (let i = 0; i < type.length; i++) {
+                    let a = type[i];
                     logtohtml += `
                         ${a}
                         -------------------------------------------<br>
