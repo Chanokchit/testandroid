@@ -209,16 +209,22 @@
     function oneChatBluetoothCallBackData(type, data) {
         try {
             let obj = JSON.parse(data);
-            // var loghtml = ''
-            //     for (let i = 0; i < obj.data.length; i++) {
-            //         let a = obj.data[i];
+            var message = ''
+            for (let i = 0; i < obj.data.length; i++) {
+                let a = obj.data[i];
 
-            //         loghtml += `${a}
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     }
-            //     document.getElementById("listdevice").innerHTML=loghtml;
-            document.getElementById("type").innerHTML= obj.data;
+                message += `
+                    obj : ${obj}
+                    name : ${a.bluetooth_name}<br>
+                    uuid : ${a.uuid}<br>
+                    manufacturer_data : ${a.manufacturer_data}<br>
+                    state : ${a.state}<br>
+                    rssi : ${a.rssi}<br>
+                    -----------------------------------------------------<br>
+                `;
+            }
+            document.getElementById("listdevice").innerHTML=message;
+            document.getElementById("type").innerHTML= type;
 
             if (type == 'get_device_service') {
                 let obj = JSON.parse(data);
