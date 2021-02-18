@@ -25,7 +25,7 @@
       document.getElementById("type").innerHTML= logtype;
       document.getElementById("data").innerHTML= logdata;
       if (logtype == 'return_once_device') {
-        document.getElementById("return").innerHTML= logdata;
+        document.getElementById("return").innerHTML= logdata.data.manufacturer_data_hexa;
         // logdata.data.manufacturer_data_hexa
       }
     })
