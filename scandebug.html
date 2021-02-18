@@ -226,25 +226,24 @@
             // document.getElementById("datalog").innerHTML=message;
             document.getElementById("type").innerHTML= type;
 
-            // if (type == 'get_device_service') {
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //     for (let i = 0; i < obj.data.length; i++) {
-            //         let a = obj.data[i];
+            if (type == 'get_device_service') {
+                let obj = JSON.parse(data);
+                var message = ''
+                for (let i = 0; i < obj.data.length; i++) {
+                    let a = obj.data[i];
 
-            //         message += `
-            //             name : ${a.bluetooth_name}<br>
-            //             uuid : ${a.uuid}<br>
-            //             manufacturer_data : ${a.manufacturer_data}<br>
-            //             state : ${a.state}<br>
-            //             rssi : ${a.rssi}<br>
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     }
-            //     document.getElementById("listdevice").innerHTML=message;
+                    message += `
+                        name : ${a.bluetooth_name}<br>
+                        uuid : ${a.uuid}<br>
+                        manufacturer_data : ${a.manufacturer_data}<br>
+                        state : ${a.state}<br>
+                        rssi : ${a.rssi}<br>
+                        -----------------------------------------------------<br>
+                    `;
+                }
+                document.getElementById("listdevice").innerHTML=message;
 
-            // } else 
-            if (type == 'return_once_device') {
+            } else if (type == 'return_once_device') {
                 let obj = JSON.parse(data);
                 var message = ''
                 for (let i = 0; i < obj.data.length; i++) {
@@ -353,7 +352,7 @@
     <!-- <h1>
         <a href="javascript:scanDevice();">[ scan device ]</a>
     </h1> -->
-        <!-- <div id="listdevice" width=300></div> -->
+        <div id="listdevice" width=300></div>
         <div id="listdevice2" width=300></div>
 </body>
 </html>
