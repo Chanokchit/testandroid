@@ -25,6 +25,7 @@
       document.getElementById("type").innerHTML= logtype;
     //   document.getElementById("data").innerHTML= logdata;
       if (logtype == 'return_once_device') {
+          let obj = JSON.parse(logdata) 
         //   let message = ''
         //   message += `
         //         data : ${logdata.data}<br>
@@ -32,7 +33,7 @@
         //         uuid : ${logdata.data.data.uuid}<br>
         //         -----------------------------------------------------<br>
         //     `;
-        document.getElementById("return").innerHTML= typeof(logdata);
+        document.getElementById("return").innerHTML= typeof(obj);
         // logdata.data.manufacturer_data_hexa
       }
     })
