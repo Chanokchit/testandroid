@@ -254,6 +254,13 @@
                 //         -----------------------------------------------------<br>
                 //     `;
                 // }
+                
+                // name : ${obj.bluetooth_name}<br>
+                        // uuid : ${obj.uuid}<br>
+                        // manufacturer_data : ${obj.manufacturer_data}<br>
+                        // manufacturer_data : ${obj.manufacturer_data_hexa}<br>
+                        // state : ${obj.state}<br>
+                        // rssi : ${obj.rssi}<br>
                 let obj = JSON.parse(data);
                 var message = ''
                 for (let i = 0; i < obj.data.length; i++) {
@@ -261,12 +268,6 @@
                     message += `
                         obj : ${obj}
                         a : ${a}
-                        name : ${obj.bluetooth_name}<br>
-                        uuid : ${obj.uuid}<br>
-                        manufacturer_data : ${obj.manufacturer_data}<br>
-                        manufacturer_data : ${obj.manufacturer_data_hexa}<br>
-                        state : ${obj.state}<br>
-                        rssi : ${obj.rssi}<br>
                         -----------------------------------------------------<br>
                     `;
                 }
