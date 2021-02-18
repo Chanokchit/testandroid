@@ -82,9 +82,27 @@
             alert('disconnectBluetoothByUUID' + error)
         }
     }
+
+    function logtoHTML(input){
+    let out = input;
+    if (typeof(input) == 'object') {
+      try {
+          out =  JSON.stringify(input, undefined, 4);
+      }
+      catch(e) {
+          alert(e);
+      }
+    }
+
+    let debugbox = document.getElementById("devicelist");
+    if (debugbox) {
+      debugbox.innerHTML = out + '<br>-------------------------------------------------<br>' + document.getElementById("devicelist").innerHTML;
+    }
+}
     
     function oneChatBluetoothCallBackData(type, data) {
         try {
+            logtoHTML('>>>><br>' + JSON.stringify({type, data}))
             if (type == 'get_device_service') {
                 let obj = JSON.parse(data);
                 var message = ''
