@@ -1,7 +1,9 @@
 <html lang="th">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://chat-develop.one.th/static/javascript/v1/onechat_bluetooth.js" type="text/javascript"></script>
 </head>
+
 <script type="text/javascript">
     let time_scan = 10000;
     var uuid_device = '54F888C9-EFEF-68D2-B21D-A730AC675099' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'
@@ -15,6 +17,11 @@
     var datawrite = '0006CC59513C4CAA6116D34BF71000B12EF8'
     var datawrite2 = 'test write text 2021'
 
+    window.addEventListener('oneChatBluetoothCallBackData', async (e) => {
+      alert('Data')
+      alert(e.detail.type)
+      this.test = e.detail.type
+    })
     function checkuserAgent () {
         
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -206,133 +213,133 @@
       }
     }
     
-    function oneChatBluetoothCallBackData(type, data) {
-        try {
-            // let obj = JSON.parse(data);
-            // var message = ''
-            // for (let i = 0; i < obj.data.length; i++) {
-            //     let a = obj.data[i];
+    // function oneChatBluetoothCallBackData(type, data) {
+    //     try {
+    //         // let obj = JSON.parse(data);
+    //         // var message = ''
+    //         // for (let i = 0; i < obj.data.length; i++) {
+    //         //     let a = obj.data[i];
 
-            //     message += `
-            //         obj(a) : ${a}
-            //         name : ${a.bluetooth_name}<br>
-            //         uuid : ${a.uuid}<br>
-            //         manufacturer_data : ${a.manufacturer_data}<br>
-            //         state : ${a.state}<br>
-            //         rssi : ${a.rssi}<br>
-            //         -----------------------------------------------------<br>
-            //     `;
-            // }
-            // document.getElementById("datalog").innerHTML=message;
-            document.getElementById("type").innerHTML= type;
+    //         //     message += `
+    //         //         obj(a) : ${a}
+    //         //         name : ${a.bluetooth_name}<br>
+    //         //         uuid : ${a.uuid}<br>
+    //         //         manufacturer_data : ${a.manufacturer_data}<br>
+    //         //         state : ${a.state}<br>
+    //         //         rssi : ${a.rssi}<br>
+    //         //         -----------------------------------------------------<br>
+    //         //     `;
+    //         // }
+    //         // document.getElementById("datalog").innerHTML=message;
+    //         document.getElementById("type").innerHTML= type;
 
-            // if (type == 'get_device_service') {
-            //     let obj = JSON.parse(data);
-            //     var message = ''
-            //     for (let i = 0; i < obj.data.length; i++) {
-            //         let a = obj.data[i];
+    //         // if (type == 'get_device_service') {
+    //         //     let obj = JSON.parse(data);
+    //         //     var message = ''
+    //         //     for (let i = 0; i < obj.data.length; i++) {
+    //         //         let a = obj.data[i];
 
-            //         message += `
-            //             name : ${a.bluetooth_name}<br>
-            //             uuid : ${a.uuid}<br>
-            //             manufacturer_data : ${a.manufacturer_data}<br>
-            //             state : ${a.state}<br>
-            //             rssi : ${a.rssi}<br>
-            //             -----------------------------------------------------<br>
-            //         `;
-            //     }
-            //     document.getElementById("listdevice").innerHTML=message;
+    //         //         message += `
+    //         //             name : ${a.bluetooth_name}<br>
+    //         //             uuid : ${a.uuid}<br>
+    //         //             manufacturer_data : ${a.manufacturer_data}<br>
+    //         //             state : ${a.state}<br>
+    //         //             rssi : ${a.rssi}<br>
+    //         //             -----------------------------------------------------<br>
+    //         //         `;
+    //         //     }
+    //         //     document.getElementById("listdevice").innerHTML=message;
 
 
-            // name : ${data.data.bluetooth_name}<br>
-            //             uuid : ${data.data.uuid}<br>
-            //             manufacturer_data : ${data.data.manufacturer_data}<br>
-            //             state : ${data.data.state}<br>
-            //             rssi : ${data.data.rssi}<br>
-            // } else 
-            if (type == 'return_once_device') {
-                // try {
-                    let obj = JSON.parse(data);
-                    var message = obj.data.uuid
-                    // for (let i = 0; i < obj.data.length; i++) {
+    //         // name : ${data.data.bluetooth_name}<br>
+    //         //             uuid : ${data.data.uuid}<br>
+    //         //             manufacturer_data : ${data.data.manufacturer_data}<br>
+    //         //             state : ${data.data.state}<br>
+    //         //             rssi : ${data.data.rssi}<br>
+    //         // } else 
+    //         if (type == 'return_once_device') {
+    //             // try {
+    //                 let obj = JSON.parse(data);
+    //                 var message = obj.data.uuid
+    //                 // for (let i = 0; i < obj.data.length; i++) {
 
-                        // let a = obj.data[i];
+    //                     // let a = obj.data[i];
 
-                        // message += `
-                        //     obj : ${obj.data.uuid}<br>
-                        //     -----------------------------------------------------<br>
-                        // `;
-                    // }
-                    document.getElementById("listdevice2").innerHTML=message;
-                // } catch (error) {
-                //     alert("error in return_once_device ====>", error)
-                // }
-                // let obj = JSON.parse(data);
-                // var message = ''
-                // for (let i = 0; i < obj.data.length; i++) {
-                //     let obj2 = obj.data[i];
-                //     message += `
-                //         service : ${obj2}<br>
-                //         device : ${obj.device_name}<br>
-                //         -----------------------------------------------------<br>
-                //     `;
-                // }
+    //                     // message += `
+    //                     //     obj : ${obj.data.uuid}<br>
+    //                     //     -----------------------------------------------------<br>
+    //                     // `;
+    //                 // }
+    //                 document.getElementById("listdevice2").innerHTML=message;
+    //             // } catch (error) {
+    //             //     alert("error in return_once_device ====>", error)
+    //             // }
+    //             // let obj = JSON.parse(data);
+    //             // var message = ''
+    //             // for (let i = 0; i < obj.data.length; i++) {
+    //             //     let obj2 = obj.data[i];
+    //             //     message += `
+    //             //         service : ${obj2}<br>
+    //             //         device : ${obj.device_name}<br>
+    //             //         -----------------------------------------------------<br>
+    //             //     `;
+    //             // }
                 
-                // name : ${obj.bluetooth_name}<br>
-                        // uuid : ${obj.uuid}<br>
-                        // manufacturer_data : ${obj.manufacturer_data}<br>
-                        // manufacturer_data : ${obj.manufacturer_data_hexa}<br>
-                        // state : ${obj.state}<br>
-                        // rssi : ${obj.rssi}<br>
-            } else if (type == 'start_scan_bluetooth') {
-                let obj = JSON.parse(data);
-                var message = ''
-                    message += `
-                        status : ${obj.type}<br>
-                        message : ${obj.message}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                document.getElementById("startdevice").innerHTML=message;
+    //             // name : ${obj.bluetooth_name}<br>
+    //                     // uuid : ${obj.uuid}<br>
+    //                     // manufacturer_data : ${obj.manufacturer_data}<br>
+    //                     // manufacturer_data : ${obj.manufacturer_data_hexa}<br>
+    //                     // state : ${obj.state}<br>
+    //                     // rssi : ${obj.rssi}<br>
+    //         } else if (type == 'start_scan_bluetooth') {
+    //             let obj = JSON.parse(data);
+    //             var message = ''
+    //                 message += `
+    //                     status : ${obj.type}<br>
+    //                     message : ${obj.message}<br>
+    //                     -----------------------------------------------------<br>
+    //                 `;
+    //             document.getElementById("startdevice").innerHTML=message;
 
-            } else if (type == 'stop_scan_bluetooth') {
-                alert (data)
-                let obj = JSON.parse(data);
-                var message = ''
-                    message += `
-                        status : ${obj.type}<br>
-                        message : ${obj.message}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                document.getElementById("stopdevice").innerHTML=message;
+    //         } else if (type == 'stop_scan_bluetooth') {
+    //             alert (data)
+    //             let obj = JSON.parse(data);
+    //             var message = ''
+    //                 message += `
+    //                     status : ${obj.type}<br>
+    //                     message : ${obj.message}<br>
+    //                     -----------------------------------------------------<br>
+    //                 `;
+    //             document.getElementById("stopdevice").innerHTML=message;
 
-            } else if (type == 'disconnect_bluetooth_all') {
-                let obj = JSON.parse(data);
-                alert(obj + type)
-                var message = ''
-                    message += `
-                        status : ${obj.type}<br>
-                        message : ${obj.message}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                document.getElementById("disconnectbluetooth").innerHTML=message;
+    //         } else if (type == 'disconnect_bluetooth_all') {
+    //             let obj = JSON.parse(data);
+    //             alert(obj + type)
+    //             var message = ''
+    //                 message += `
+    //                     status : ${obj.type}<br>
+    //                     message : ${obj.message}<br>
+    //                     -----------------------------------------------------<br>
+    //                 `;
+    //             document.getElementById("disconnectbluetooth").innerHTML=message;
 
-            } else if (type == 'disconnect_bluetooth_by_uuid') {
-                let obj = JSON.parse(data);
-                alert(obj + type)
-                var message = ''
-                    message += `
-                        name : ${obj.device_name}<br>
-                        uuid : ${obj.device_uuid}<br>
-                        message : ${obj.message}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                document.getElementById("disconnectbluetoothUUID").innerHTML=message;
-            }
-        }
-        catch(error) {
-            alert('error >>>>>>>> ' + error);
-        }        
-    }
+    //         } else if (type == 'disconnect_bluetooth_by_uuid') {
+    //             let obj = JSON.parse(data);
+    //             alert(obj + type)
+    //             var message = ''
+    //                 message += `
+    //                     name : ${obj.device_name}<br>
+    //                     uuid : ${obj.device_uuid}<br>
+    //                     message : ${obj.message}<br>
+    //                     -----------------------------------------------------<br>
+    //                 `;
+    //             document.getElementById("disconnectbluetoothUUID").innerHTML=message;
+    //         }
+    //     }
+    //     catch(error) {
+    //         alert('error >>>>>>>> ' + error);
+    //     }        
+    // }
 
 </script>
 <body>
