@@ -142,9 +142,9 @@
     function OneChat_connectServiceByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_connectServiceByUUID.postMessage({device_uuid: device_uuid, service_uuid: uuid_service});
+          webkit.messageHandlers.OneChat_connectServiceByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_connectServiceByUUID(JSON.stringify({device_uuid: device_uuid, service_uuid: uuid_service}));
+          JavaScriptInterface.OneChat_connectServiceByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service}));
         }
       } catch(error) {
         alert('connectServiceByUUID ' + error)
@@ -154,9 +154,9 @@
     function OneChat_getPrimaryService() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_getPrimaryService.postMessage(device_uuid);
+          webkit.messageHandlers.OneChat_getPrimaryService.postMessage(uuid_device_ios);
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_getPrimaryService(device_uuid);
+          JavaScriptInterface.OneChat_getPrimaryService(uuid_device_an);
         }
       } catch(error) {
         alert('getPrimaryService ' + error)
@@ -347,6 +347,72 @@
                     `;
                 document.getElementById("stopdevice").innerHTML=message;
 
+
+            } else if (type == 'get_service') {
+                let obj = JSON.parse(data);
+                var message = ''
+                for (let i = 0; i < obj.data.length; i++) {
+                    let obj2 = obj.data[i];
+                    message += `
+                        service : ${obj2}<br>
+                        device : ${obj.device_name}<br>
+                        -----------------------------------------------------<br>
+                    `;
+                }
+                document.getElementById("listservice").innerHTML=message;
+
+            } else if (type == 'get_characteristic') {
+                let obj = JSON.parse(data);
+                alert ('obj>>>>' + obj)
+                var message = ''
+                for (let i = 0; i < obj.data.length; i++) {
+                    let obj2 = obj.data[i]
+
+                    message += `
+                        uuid : ${obj2.uuid}<br>
+                        type : ${obj2.type}<br>
+                        descriptors : ${obj2.descriptors}<br>
+                        -----------------------------------------------------<br>
+                    `;
+                }
+                document.getElementById("listcharacteristic").innerHTML=message;
+
+            } else if (type == 'write_characteristic') {
+                // alert (data)
+                let obj = JSON.parse(data);
+                var message = ''
+                    message += `
+                        data : ${obj.data}<br>
+                        characteristic_uuid: ${obj.characteristic_uuid}<br> 
+                        -----------------------------------------------------<br>`;
+
+                document.getElementById("write").innerHTML=message;
+            
+            } else if (type == 'read_characteristic') {
+                alert (data)
+                let obj = JSON.parse(data);
+                var message = ''
+                    message += `
+                        data : ${obj.data}<br>
+                        characteristic_uuid: ${obj.characteristic_uuid}<br> 
+                        -----------------------------------------------------<br>`;
+
+                document.getElementById("read").innerHTML=message;
+            
+            } else if (type == 'read_characteristic_by_uuid_V2') {
+                alert (data)
+                let obj = JSON.parse(data);
+                var message = ''
+                    message += `
+                        data : ${obj.data}<br>
+                        device_name : ${obj.device_name}<br>
+			            device_uuid: ${obj.device_uuid}<br>
+                        service_uuid: ${obj.service_uuid}<br>
+                        characteristic_uuid: ${obj.characteristic_uuid}<br> 
+                        -----------------------------------------------------<br>`;
+
+                document.getElementById("readUUID").innerHTML=message;
+
             } else if (type == 'write_characteristic_by_uuid') {
                 // scanDevice()
                 alert (data)
@@ -454,5 +520,11 @@
         <div id="listdevice2" width=300></div>
         <div id="listdevice3" width=300></div>
         <div id="writeuuid" width=300></div>
+        <div id="listservice" width=300></div>
+        <div id="listcharacteristic" width=300></div>
+        <div id="readuuid" width=300></div>
+        <div id="read" width=300></div>
+        <div id="write" width=300></div>
+        
 </body>
 </html>
