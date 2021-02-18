@@ -264,10 +264,9 @@
                             obj3 : ${obj.data}
                             a : ${a}
                             a.uuid : ${a.uuid}
-                            
                             -----------------------------------------------------<br>
                         `;
-                    // }
+                    }
                     document.getElementById("listdevice2").innerHTML=message;
                 // } catch (error) {
                 //     alert("error in return_once_device ====>", error)
@@ -289,8 +288,6 @@
                         // manufacturer_data : ${obj.manufacturer_data_hexa}<br>
                         // state : ${obj.state}<br>
                         // rssi : ${obj.rssi}<br>
-                
-
             } else if (type == 'start_scan_bluetooth') {
                 let obj = JSON.parse(data);
                 var message = ''
