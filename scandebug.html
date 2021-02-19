@@ -6,15 +6,16 @@
 
 <script type="text/javascript">
     let time_scan = 10000;
-    var uuid_device_an =  'c8dfd671-3604-3bac-961d-4d1a7e6aa1f2'//'33bdc900-70a4-3b31-843f-81220804cd81'//'7800b317-e65c-3561-ab22-a9ef256fe7bb'//'ad7f0eab-60f2-3f2f-b4a9-d39069284411'//'b9b8b0a9-4e46-3034-b5f7-3918a0fd9bf2'//'' //ad7f0eab-60f2-3f2f-b4a9-d39069284411//'b9b8b0a9-4e46-3034-b5f7-3918a0fd9bf2' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'  F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7
-    var uuid_device_ios = 'A658ED45-BA23-BE46-5482-E1B5205D922A'//'F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'  F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7
+    var uuid_device_an =  'b9b8b0a9-4e46-3034-b5f7-3918a0fd9bf2'//'832f0b1d-501a-3284-9e77-6aec04b668cb'//'c8dfd671-3604-3bac-961d-4d1a7e6aa1f2'//'33bdc900-70a4-3b31-843f-81220804cd81'//'7800b317-e65c-3561-ab22-a9ef256fe7bb'//'ad7f0eab-60f2-3f2f-b4a9-d39069284411'//'b9b8b0a9-4e46-3034-b5f7-3918a0fd9bf2'//'' //ad7f0eab-60f2-3f2f-b4a9-d39069284411//'b9b8b0a9-4e46-3034-b5f7-3918a0fd9bf2' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'  F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7
+    var uuid_device_ios = 'F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7'//'F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7' //'310AA789-4E84-990A-C1AB-CDA6694E4FE9'  F4CC7C98-26B5-ACB7-9EBE-0C6082B624D7
     // var uuid_device = '46B314E5-E9DF-2D51-D524-06B718D02025' // A658ED45-BA23-BE46-5482-E1B5205D922A   54F888C9-EFEF-68D2-B21D-A730AC675099
     var uuid_device2 = 'A25692B2-5EF3-0C47-90F3-36391CA3CB53'
-    var uuid_service = '7598D0F1-BEE6-467C-9D83-40285256B67B'//'45FC5108-DF17-418F-9DDD-C80210F2D93C'//'6DD04D97-C3E8-4720-86C1-C80DD3B76384'//'5b5c170c-9637-4045-b9fe-cd89b0cf0214'//'180D' //'FF00'//'5b5c170c-9637-4045-b9fe-cd89b0cf0214' // //180D
-    var uuid_characteristic_read = '2A38' //2A38 AA11
+    var uuid_service = 'FF00'//'B0E00D51-3783-4770-B64D-56471ADABC7D'//'7598D0F1-BEE6-467C-9D83-40285256B67B'//'45FC5108-DF17-418F-9DDD-C80210F2D93C'//'6DD04D97-C3E8-4720-86C1-C80DD3B76384'//'5b5c170c-9637-4045-b9fe-cd89b0cf0214'//'180D' //'FF00'//'5b5c170c-9637-4045-b9fe-cd89b0cf0214' // //180D
+    var uuid_service2 = '1111' 
+    var uuid_characteristic_read = '2222' //2A38 AA11
     var manufacturer_data_ios = 'fc58fa3bd73c'
     var manufacturer_data_an = '58FCfa3bd73c'
-    var uuid_characteristic_write = '73C2D91F-8972-4101-800F-C2FA159C7F43'//'73C2D91F-8972-4101-800F-C2FA159C7F43'//'BAA5C88C-A5E6-4621-A217-F487771804FB'//'0DF06F8D-EE69-4A6C-81A0-7151EF849B87'//'2A39'//'FF01'//'0DF06F8D-EE69-4A6C-81A0-7151EF849B87'  //2A39
+    var uuid_characteristic_write = 'FF01'//'28BCF44E-FD50-4D3C-A41A-02A9BD68A70B'//'73C2D91F-8972-4101-800F-C2FA159C7F43'//'73C2D91F-8972-4101-800F-C2FA159C7F43'//'BAA5C88C-A5E6-4621-A217-F487771804FB'//'0DF06F8D-EE69-4A6C-81A0-7151EF849B87'//'2A39'//'FF01'//'0DF06F8D-EE69-4A6C-81A0-7151EF849B87'  //2A39
     var data_type = 'hex'
     var data_type2 = 'text'
     var datawrite = '0006CC59513C4CAA6116D34BF71000B12EF8'
@@ -82,9 +83,9 @@
     function disconnectBluetoothByUUID() {
         try {
             if (checkuserAgent() == 'ios') {
-            webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device);
+            webkit.messageHandlers.OneChat_disconnectBluetoothByUUID.postMessage(uuid_device_ios);
             } else if (checkuserAgent() == 'android') {
-            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify(uuid_device));
+            JavaScriptInterface.OneChat_disconnectBluetoothByUUID(JSON.stringify(uuid_device_an));
             alert('disconnect')
         }
         } catch(error) {
@@ -191,9 +192,9 @@
     function OneChat_readCharacteristicByUUID() {
       try {
         if (checkuserAgent() == 'ios') {
-          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read});
+          webkit.messageHandlers.OneChat_readCharacteristicByUUID.postMessage({device_uuid: uuid_device_ios, service_uuid: uuid_service2, characteristic_uuid: uuid_characteristic_read});
         } else if (checkuserAgent() == 'android') {
-          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service, characteristic_uuid: uuid_characteristic_read}));
+          JavaScriptInterface.OneChat_readCharacteristicByUUID(JSON.stringify({device_uuid: uuid_device_an, service_uuid: uuid_service2, characteristic_uuid: uuid_characteristic_read}));
         }
       } catch(error) {
         alert('readCharacteristicByUUID ' + error)
@@ -253,25 +254,7 @@
 
     function oneChatBluetoothCallBackData(type, data) {
         try {
-            // let obj = JSON.parse(data);
-            // var message = ''
-            // for (let i = 0; i < obj.data.length; i++) {
-            //     let a = obj.data[i];
-
-            //     message += `
-            //         obj(a) : ${a}
-            //         name : ${a.bluetooth_name}<br>
-            //         uuid : ${a.uuid}<br>
-            //         manufacturer_data : ${a.manufacturer_data}<br>
-            //         state : ${a.state}<br>
-            //         rssi : ${a.rssi}<br>
-            //         -----------------------------------------------------<br>
-            //     `;
-            // }
-            // document.getElementById("datalog").innerHTML=message;
             document.getElementById("type").innerHTML= type;
-            
-            
             // if (type == 'get_device_service') {
             //     let obj = JSON.parse(data);
             //     var message = ''
@@ -289,13 +272,6 @@
             //     }
             //     document.getElementById("listdevice").innerHTML=message;
 
-
-            // name : ${data.data.bluetooth_name}<br>
-            //             uuid : ${data.data.uuid}<br>
-            //             manufacturer_data : ${data.data.manufacturer_data}<br>
-            //             state : ${data.data.state}<br>
-            //             rssi : ${data.data.rssi}<br>
-            // } else 
             if (type == 'return_once_device') {
                 logtoHTML (data)
                 let obj = JSON.parse(data);
@@ -343,25 +319,7 @@
                     
                     document.getElementById("listdevice4").innerHTML= message ;
                 }
-                // scanDevice(uuid_device)
-                // } 
-                // let obj = JSON.parse(data);
-                // var message = ''
-                // for (let i = 0; i < obj.data.length; i++) {
-                //     let obj2 = obj.data[i];
-                //     message += `
-                //         service : ${obj2}<br>
-                //         device : ${obj.device_name}<br>
-                //         -----------------------------------------------------<br>
-                //     `;
-                // }
-                
-                // name : ${obj.bluetooth_name}<br>
-                        // uuid : ${obj.uuid}<br>
-                        // manufacturer_data : ${obj.manufacturer_data}<br>
-                        // manufacturer_data : ${obj.manufacturer_data_hexa}<br>
-                        // state : ${obj.state}<br>
-                        // rssi : ${obj.rssi}<br>
+
             } else if (type == 'start_scan_bluetooth') {
                 let obj = JSON.parse(data);
                 var message = ''
@@ -383,35 +341,37 @@
                     `;
                 document.getElementById("stopdevice").innerHTML=message;
 
-
             } else if (type == 'get_service') {
                 let obj = JSON.parse(data);
-                var message = ''
-                for (let i = 0; i < obj.data.length; i++) {
-                    let obj2 = obj.data[i];
-                    message += `
-                        service : ${obj2}<br>
-                        device : ${obj.device_name}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                }
-                document.getElementById("listservice").innerHTML=message;
+                alert (obj)
+                
+                // var message = ''
+                // for (let i = 0; i < obj.data.length; i++) {
+                //     let obj2 = obj.data[i];
+                //     message += `
+                //         service : ${obj2}<br>
+                //         device : ${obj.device_name}<br>
+                //         -----------------------------------------------------<br>
+                //     `;
+                // }
+                // document.getElementById("listservice").innerHTML=logtype(obj);
 
             } else if (type == 'get_characteristic') {
                 let obj = JSON.parse(data);
-                // alert ('obj>>>>' + obj)
-                var message = ''
-                for (let i = 0; i < obj.data.length; i++) {
-                    let obj2 = obj.data[i]
+                alert (obj)
+                // // alert ('obj>>>>' + obj)
+                // var message = ''
+                // for (let i = 0; i < obj.data.length; i++) {
+                //     let obj2 = obj.data[i]
 
-                    message += `
-                        uuid : ${obj2.uuid}<br>
-                        type : ${obj2.type}<br>
-                        descriptors : ${obj2.descriptors}<br>
-                        -----------------------------------------------------<br>
-                    `;
-                }
-                document.getElementById("listcharacteristic").innerHTML=message;
+                //     message += `
+                //         uuid : ${obj2.uuid}<br>
+                //         type : ${obj2.type}<br>
+                //         descriptors : ${obj2.descriptors}<br>
+                //         -----------------------------------------------------<br>
+                //     `;
+                // }
+                // document.getElementById("listcharacteristic").innerHTML=message;
 
             } else if (type == 'write_characteristic') {
                 // alert (data)
